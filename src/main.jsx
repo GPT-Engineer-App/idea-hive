@@ -11,12 +11,57 @@ const colors = {
   },
 };
 
-const theme = extendTheme({ colors });
+const theme = extendTheme({
+  colors,
+  components: {
+    Heading: {
+      baseStyle: {
+        fontFamily: "monospace",
+        fontWeight: "bold",
+      },
+    },
+    Text: {
+      baseStyle: {
+        fontFamily: "monospace",
+        fontWeight: "bold",
+      },
+    },
+    Button: {
+      baseStyle: {
+        boxShadow: "none",
+        borderRadius: "none",
+      },
+    },
+    Input: {
+      baseStyle: {
+        boxShadow: "none",
+        borderRadius: "none",
+      },
+    },
+    IconButton: {
+      baseStyle: {
+        boxShadow: "none",
+        borderRadius: "none",
+      },
+    },
+  },
+  styles: {
+    global: {
+      "html, body": {
+        backgroundColor: "gray.900",
+        color: "whiteAlpha.900",
+      },
+      "*::placeholder": {
+        color: "whiteAlpha.700",
+      },
+    },
+  },
+});
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
       <App />
     </ChakraProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
