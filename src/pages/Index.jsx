@@ -52,18 +52,18 @@ const Index = () => {
   return (
     <Container maxW="container.md" py={10} p={8}>
       <VStack spacing={4} as="form" onSubmit={(e) => e.preventDefault()} align="center" mt={12}>
-        <Heading size="2xl">Idea Collector</Heading>
+        <Heading size="2xl">Idea Master</Heading>
         <Text fontSize="xl">Share your ideas with the world!</Text>
         <Input placeholder="What's your idea?" value={newIdea} onChange={handleNewIdeaChange} boxShadow="base" />
         {isAdmin && (
           <Button leftIcon={<FaPlus />} colorScheme="teal" onClick={addIdea}>
-            Add Idea
+            Add your thoughts
           </Button>
         )}
       </VStack>
       <Box mt={10}>
         <Heading size="md" mb={4}>
-          Ideas List
+          Group thoughts
         </Heading>
         {ideas.length > 0 ? (
           <UnorderedList>
