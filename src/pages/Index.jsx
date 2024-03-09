@@ -40,11 +40,11 @@ const Index = () => {
   };
 
   return (
-    <Container maxW="container.md" py={10}>
-      <VStack spacing={4} as="form" onSubmit={(e) => e.preventDefault()}>
-        <Heading>Idea Collector</Heading>
-        <Text>Share your ideas with the world!</Text>
-        <Input placeholder="What's your idea?" value={newIdea} onChange={handleNewIdeaChange} />
+    <Container maxW="container.md" py={10} bgGradient="linear(to-r, teal.500, green.500)" borderRadius="lg" p={8} boxShadow="xl">
+      <VStack spacing={4} as="form" onSubmit={(e) => e.preventDefault()} align="center" mt={12}>
+        <Heading size="2xl">Idea Collector</Heading>
+        <Text fontSize="xl">Share your ideas with the world!</Text>
+        <Input placeholder="What's your idea?" value={newIdea} onChange={handleNewIdeaChange} boxShadow="base" />
         <Button leftIcon={<FaPlus />} colorScheme="teal" onClick={addIdea}>
           Add Idea
         </Button>
@@ -66,8 +66,8 @@ const Index = () => {
           <Text>No ideas yet. Be the first to submit!</Text>
         )}
       </Box>
-      <Button colorScheme="purple" mt={4}>
-        Generate Final Idea
+      <Button colorScheme="orange" mt={6} size="lg" boxShadow="md">
+        Generate a Brilliant Idea
       </Button>
     </Container>
   );
