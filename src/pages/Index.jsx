@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Box, VStack, Input, Button, Text, Heading, Container, UnorderedList, ListItem, useToast, IconButton } from "@chakra-ui/react";
 import { FaPlus, FaTrash } from "react-icons/fa";
 
+import { useBoolean } from "@chakra-ui/react";
+
 const Index = () => {
+  const [isAdmin] = useBoolean(true);
   const [ideas, setIdeas] = useState([]);
   const [newIdea, setNewIdea] = useState("");
   const [generatedIdea, setGeneratedIdea] = useState("");
@@ -52,9 +55,11 @@ const Index = () => {
         <Heading size="2xl">Idea Collector</Heading>
         <Text fontSize="xl">Share your ideas with the world!</Text>
         <Input placeholder="What's your idea?" value={newIdea} onChange={handleNewIdeaChange} boxShadow="base" />
-        <Button leftIcon={<FaPlus />} colorScheme="teal" onClick={addIdea}>
-          Add Idea
-        </Button>
+        {isAdmin && (
+          <Button leftIcon={<FaPlus />} colorScheme="teal" onClick={addIdea}>
+            Add Idea
+          </Button>
+        )}
       </VStack>
       <Box mt={10}>
         <Heading size="md" mb={4}>
@@ -65,7 +70,7 @@ const Index = () => {
             {ideas.map((idea, index) => (
               <ListItem key={index} d="flex" alignItems="center" mb={2}>
                 {idea}
-                <IconButton icon={<FaTrash />} colorScheme="red" variant="ghost" aria-label="Delete Idea" onClick={() => removeIdea(index)} ml={2} />
+                {isAdmin && <IconButton icon={<FaTrash />} colorScheme="red" variant="ghost" aria-label="Delete Idea" onClick={() => removeIdea(index)} ml={2} />}
               </ListItem>
             ))}
           </UnorderedList>
@@ -73,11 +78,11 @@ const Index = () => {
           <Text>No ideas yet. Be the first to submit!</Text>
         )}
       </Box>
-      <Button colorScheme="orange" mt={6} size="lg" boxShadow="md" onClick={generateIdea}>
-        {" "}
-        {}
-        Generate a Brilliant Idea
-      </Button>
+      {isAdmin && (
+        <Button colorScheme="orange" mt={6} size="lg" boxShadow="md" onClick={generateIdea}>
+          Generate a Brilliant Idea
+        </Button>
+      )}
       <Text mt={4}>{generatedIdea}</Text> {}
     </Container>
   );
