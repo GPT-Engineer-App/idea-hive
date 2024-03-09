@@ -40,7 +40,7 @@ const Index = () => {
   };
 
   return (
-    <Container maxW="container.md" py={10} bgGradient="linear(to-r, teal.500, green.500)" borderRadius="lg" p={8} boxShadow="xl">
+    <Container maxW="container.md" py={10} borderRadius="lg" p={8} boxShadow="xl">
       <VStack spacing={4} as="form" onSubmit={(e) => e.preventDefault()} align="center" mt={12}>
         <Heading size="2xl">Idea Collector</Heading>
         <Text fontSize="xl">Share your ideas with the world!</Text>
