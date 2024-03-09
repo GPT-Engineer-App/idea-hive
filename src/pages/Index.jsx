@@ -45,14 +45,10 @@ const Index = () => {
         <Heading>Idea Collector</Heading>
         <Text>Share your ideas with the world!</Text>
         <Input placeholder="What's your idea?" value={newIdea} onChange={handleNewIdeaChange} />
-        <VStack spacing={4}>
-          <Button leftIcon={<FaPlus />} colorScheme="teal" onClick={addIdea}>
-            Add Idea
-          </Button>
-          <Button colorScheme="purple">Generate Final Idea</Button>
-        </VStack>
+        <Button leftIcon={<FaPlus />} colorScheme="teal" onClick={addIdea}>
+          Add Idea
+        </Button>
       </VStack>
-
       <Box mt={10}>
         <Heading size="md" mb={4}>
           Ideas List
@@ -70,6 +66,9 @@ const Index = () => {
           <Text>No ideas yet. Be the first to submit!</Text>
         )}
       </Box>
+      <Button colorScheme="purple" mt={4}>
+        Generate Final Idea
+      </Button>
     </Container>
   );
 };
